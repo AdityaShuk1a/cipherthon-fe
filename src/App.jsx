@@ -1,27 +1,19 @@
-import {
-    Box,
-    Container,
-    Flex,
-    Image,
-    Spacer,
-    VStack,
-    HStack,
-    background,
-    flexbox,
-    Text,
-    space,
-} from "@chakra-ui/react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React from "react";
-import { Nav } from "./components/Nav/Nav.jsx";
-import { Login } from "./components/Login/Login.jsx";
-import DoctorSignup from "./components/Register/DoctorSignup.jsx";
+import Login from "./components/Login/Login.jsx";
+import Signup from "./components/Signup/Signup.jsx";
+import HomePage from "./components/HomePage/HomePage";
 
-import HomePage from "./components/HomePage/HomePage.jsx";
 const App = () => {
     return (
-        <Box fontFamily={"unset"}>
-            <HomePage/>
-        </Box>
+        <Router>
+            <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/" element={<HomePage />} />
+                <Route path="/signup" element={<Signup />} />
+            </Routes>
+        </Router>
     );
 };
 

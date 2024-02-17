@@ -6,37 +6,34 @@ import {
     Stack,
     InputGroup,
     InputLeftAddon,
-    Flex,
     Radio,
     Image,
     RadioGroup,
     Grid,
     Button,
-    SimpleGrid,
-    HStack,
     Center,
     Heading,
-    useFocusEffect,
 } from "@chakra-ui/react";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { AspectRatio } from "@chakra-ui/react";
 
-export const FormStep1 = () => {
-    const [phoneNumber, setphoneNumber] = useState();
+const Signup = () => {
+    const [phoneNumber, setphoneNumber] = useState("");
     const [name, setname] = useState("");
-    const [selectedGender, setSelectedGender] = useState(null);
-    const [password, setpassword] = useState(null);
-    const [enablebtn, setenablebtn] = useState(false);
-    useEffect(() => {
+    const [selectedGender, setSelectedGender] = useState("");
+    const [password, setpassword] = useState("");
+
+    const check = () => {
         if (
-            isNaN(phoneNumber) ||
-            name.length != 0 ||
-            selectedGender != null ||
+            !isNaN(phoneNumber) &&
+            name.length != 0 &&
+            selectedGender.length != 0 &&
             password.length != 0
         ) {
-            setenablebtn(true);
+            return true;
         }
-    }, [phoneNumber, name, selectedGender, password]);
+        return false;
+    };
 
     const inputStyle = {
         width: "370px",
@@ -72,11 +69,10 @@ export const FormStep1 = () => {
     };
     const submitBtn = (e) => {
         e.preventDefault();
-
-        if (enablebtn) {
-            // console.log("");
+        if (check()) {
+            console.log("yup");
         } else {
-            alert("some data is missing.");
+            alert("Kindly, Check the entered data.");
         }
     };
     return (
@@ -172,3 +168,4 @@ export const FormStep1 = () => {
         </Center>
     );
 };
+export default Signup;
