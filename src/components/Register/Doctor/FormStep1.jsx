@@ -23,6 +23,8 @@ import { AspectRatio } from "@chakra-ui/react";
 export const FormStep1 = () => {
     const [phoneNumber, setphoneNumber] = useState();
     const [name, setname] = useState("");
+    const [selectedGender, setSelectedGender] = useState("");
+    const [password, setpassword] = useState("");
     const inputStyle = {
         width: "370px",
         marginTop: "20px",
@@ -43,12 +45,18 @@ export const FormStep1 = () => {
             if (!isValid) {
                 setphoneNumber(newPhoneNumber);
             }
-        } else {
+        } else if (event.target.id == "name") {
             const newName = event.target.value;
             setname(newName);
+        } else {
+            const newPassword = event.target.value;
+            setpassword(newPassword);
         }
     };
 
+    const handleGenderChange = (value) => {
+        setSelectedGender(value);
+    };
     return (
         <Center h="100vh">
             <Grid
@@ -57,7 +65,7 @@ export const FormStep1 = () => {
                 borderRadius={50}
                 bgColor={"white"}
                 boxShadow="lg"
-                overflow="hidden" // This ensures the border radius applies to all sides
+                overflow="hidden"
             >
                 <Box>
                     <AspectRatio w="100%" h="100%" ratio={3 / 5}>
@@ -74,6 +82,7 @@ export const FormStep1 = () => {
                                 {...inputStyle}
                                 type="text"
                                 placeholder="Name"
+                                id="name"
                                 value={name}
                                 onChange={handleInputChange}
                             ></Input>
@@ -94,27 +103,37 @@ export const FormStep1 = () => {
                             <Input
                                 {...inputStyle}
                                 type="email"
-                                placeholder="email id"
+                                placeholder="Email id"
                             ></Input>
                             <Text {...textStyle} mb={"4"}>
                                 Gender
                             </Text>
-                            <RadioGroup name="rButton">
-                                <Radio {...radioStyle} value="male">
-                                    Male
-                                </Radio>
-                                <Radio {...radioStyle} value="female">
-                                    Female
-                                </Radio>
-                                <Radio {...radioStyle} value="others">
-                                    Others
-                                </Radio>
+                            <RadioGroup
+                                value={selectedGender}
+                                onChange={handleGenderChange}
+                                name="rButton"
+                                id="Gender"
+                            >
+                                <VStack spacing={2} align="start">
+                                    <Radio {...radioStyle} value="Male">
+                                        Male
+                                    </Radio>
+                                    <Radio {...radioStyle} value="Female">
+                                        Female
+                                    </Radio>
+                                    <Radio {...radioStyle} value="Other">
+                                        Others
+                                    </Radio>
+                                </VStack>
                             </RadioGroup>
                             <Text {...textStyle}>Password</Text>
                             <Input
                                 {...inputStyle}
                                 type="password"
+                                id="passoword"
                                 placeholder="Enter password"
+                                value={password}
+                                onChange={handleInputChange}
                             ></Input>
                         </Box>
                         <Button mt={4} colorScheme="teal" type="submit">

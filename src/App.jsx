@@ -1,26 +1,29 @@
-import { Box, Container, Flex,Image, Spacer, VStack,HStack, background, flexbox,Text, space } from '@chakra-ui/react'
+import {
+    Box,
+    Container,
+    Flex,
+    Image,
+    Spacer,
+    VStack,
+    HStack,
+    background,
+    flexbox,
+    Text,
+    space,
+} from "@chakra-ui/react";
 import React from "react";
 import { Nav } from "./components/Nav.jsx";
-import {Login } from "./components/Login/Login.jsx"; 
-import { SignUp } from './components/Login/SignUp.jsx';
+import { Login } from "./components/Login/Login.jsx";
+import { SignUp } from "./components/Login/SignUp.jsx";
 import DoctorSignup from "./components/Register/DoctorSignup.jsx";
 
+const App = () => {
+    return (
+        <Box fontFamily={"unset"}>
+            {/* <Login></Login> */}
+            <DoctorSignup />
+        </Box>
+    );
+};
 
-
-
-const App = () =>  {
-  
-    
-  return (
-  <Box fontFamily={'unset'}>
-    
-    
-
-   
-    <DoctorSignup/>
-    
-  </Box>
-  )
-}
-
-export default App
+export default App;
