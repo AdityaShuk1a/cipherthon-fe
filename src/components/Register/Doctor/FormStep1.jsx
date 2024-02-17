@@ -1,36 +1,60 @@
-import { Box, VStack, Input,Form,Text, Stack, InputGroup, InputLeftAddon } from '@chakra-ui/react'
-import React from 'react'
+import {
+    Box,
+    VStack,
+    Input,
+    Text,
+    Stack,
+    InputGroup,
+    InputLeftAddon,
+} from "@chakra-ui/react";
+import React, { useState, useEffect } from "react";
 
 export const FormStep1 = () => {
     const [phoneNumber, setphoneNumber] = useState();
-    function handleInputChange(e){
+    const [name, setname] = useState("");
 
-    }
+    const handleInputChange = (event) => {
+        if (event.target.id == "phoneNumber") {
+            const newPhoneNumber = event.target.value;
+            const isValid = isNaN(newPhoneNumber);
+            if (!isValid) {
+                setphoneNumber(newPhoneNumber);
+            }
+        } else {
+            const newName = event.target.value;
+            setname(newName);
+        }
+    };
+ 
+
     return (
         <Box>
             <Box>
-                {/* <Header>
-                    <Text>Doctor Login</Text>
-                </Header> */}
                 <VStack>
-                    <Form>
+                    <Box>
                         <Text>Name</Text>
-                        <Input type='text' placeholder='Name'
-                        >
-                        </Input>
+                        <Input
+                            type="text"
+                            placeholder="Name"
+                            value={name}
+                            onChange={handleInputChange}
+                        ></Input>
                         <Text>Phone No.</Text>
                         <Stack spacing={4}>
                             <InputGroup>
-                                <InputLeftAddon>
-                                    +91
-                                </InputLeftAddon>
-                                <Input onChange={handleInputChange} type='number' placeholder='phone number' value={phoneNumber}/>
+                                <InputLeftAddon>+91</InputLeftAddon>
+                                <Input
+                                    type="tel"
+                                    id="phoneNumber"
+                                    placeholder="Enter your phone number"
+                                    value={phoneNumber}
+                                    onChange={handleInputChange}
+                                />
                             </InputGroup>
-
                         </Stack>
-                    </Form>
+                    </Box>
                 </VStack>
             </Box>
         </Box>
-    )
-}
+    );
+};
