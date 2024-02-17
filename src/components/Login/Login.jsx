@@ -24,7 +24,7 @@ const Login = () => {
                             <Text fontWeight={60}>
                                 A Hospital
                                 <Text fontWeight={"bold"}>Bed Is A Parked Taxi</Text>
-                                <Text>With A Meter Runnnig</Text>
+                                <Text>With A Meter Runnig</Text>
                             </Text>
                         </Box>
                     </GridItem>
