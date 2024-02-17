@@ -14,13 +14,13 @@ import {
 import React from "react";
 import { Nav } from "./components/Nav/Nav.jsx";
 import { Login } from "./components/Login/Login.jsx";
-import { SignUp } from "./components/Login/SignUp.jsx";
 import DoctorSignup from "./components/Register/DoctorSignup.jsx";
+import { FormStep1 } from "./components/Register/Doctor/FormStep1.jsx";
 
 const App = () => {
     return (
         <Box fontFamily={"unset"}>
-            <Nav></Nav>
+            <FormStep1></FormStep1>
         </Box>
     );
 };

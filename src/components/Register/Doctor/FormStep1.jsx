@@ -16,6 +16,7 @@ import {
     HStack,
     Center,
     Heading,
+    useFocusEffect,
 } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 import { AspectRatio } from "@chakra-ui/react";
@@ -23,8 +24,20 @@ import { AspectRatio } from "@chakra-ui/react";
 export const FormStep1 = () => {
     const [phoneNumber, setphoneNumber] = useState();
     const [name, setname] = useState("");
-    const [selectedGender, setSelectedGender] = useState("");
-    const [password, setpassword] = useState("");
+    const [selectedGender, setSelectedGender] = useState(null);
+    const [password, setpassword] = useState(null);
+    const [enablebtn, setenablebtn] = useState(false);
+    useEffect(() => {
+        if (
+            isNaN(phoneNumber) ||
+            name.length != 0 ||
+            selectedGender != null ||
+            password.length != 0
+        ) {
+            setenablebtn(true);
+        }
+    }, [phoneNumber, name, selectedGender, password]);
+
     const inputStyle = {
         width: "370px",
         marginTop: "20px",
@@ -56,6 +69,15 @@ export const FormStep1 = () => {
 
     const handleGenderChange = (value) => {
         setSelectedGender(value);
+    };
+    const submitBtn = (e) => {
+        e.preventDefault();
+
+        if (enablebtn) {
+            // console.log("");
+        } else {
+            alert("some data is missing.");
+        }
     };
     return (
         <Center h="100vh">
@@ -136,7 +158,12 @@ export const FormStep1 = () => {
                                 onChange={handleInputChange}
                             ></Input>
                         </Box>
-                        <Button mt={4} colorScheme="teal" type="submit">
+                        <Button
+                            mt={4}
+                            colorScheme="teal"
+                            onClick={submitBtn}
+                            type="submit"
+                        >
                             Submit
                         </Button>
                     </VStack>
