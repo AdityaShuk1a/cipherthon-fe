@@ -15,6 +15,7 @@ import React from "react";
 import { Nav } from "./components/Nav.jsx";
 import { Login } from "./components/Login/Login.jsx";
 import { SignUp } from "./components/Login/SignUp.jsx";
+
 import DoctorSignup from "./components/Register/DoctorSignup.jsx";
 
 const App = () => {
@@ -25,5 +26,6 @@ const App = () => {
         </Box>
     );
 };
+
 
 export default App;
