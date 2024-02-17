@@ -56,7 +56,7 @@ export const FormStep1 = () => {
             <Grid
                 templateColumns="repeat(2, 1fr)"
                 gap={6}
-                borderRadius={50}
+                borderRadius={5}
                 bgColor={"white"}
             >
                 <Box>
