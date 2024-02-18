@@ -1,13 +1,12 @@
 import React from "react";
-
 import { Box, MenuItem, MenuGroup } from "@chakra-ui/react";
 import { FiUser } from "react-icons/fi";
 import { FaPlus } from "react-icons/fa";
 import { Menu, MenuButton, MenuList, MenuDivider } from "@chakra-ui/react";
 
 export const Nav = () => {
-    return ( 
-        <Box display={"flex"} bgColor={"white"} justifyContent={"space-between"}>
+    return (
+        <Box style={{position:'fixed', top: 0,zIndex:'1000'}} display={"flex"} bgColor={"white"} justifyContent={"space-between"} w="100%">
             <Box mt={3} ml={4} p={2} bgColor={"white"} borderRadius={50}>
                 <FaPlus style={{ fontSize: "3vh" }} />
             </Box>
@@ -30,3 +29,5 @@ export const Nav = () => {
         </Box>
     );
 };
+
+export default Nav;
