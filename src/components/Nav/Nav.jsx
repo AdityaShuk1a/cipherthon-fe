@@ -21,7 +21,7 @@ export const Nav=()=> {
         padding:'0',
     }
   return (
-    <Box display={'flex'} bgColor={'white'} justifyContent={'space-between'}   >
+    <Box display={'flex'}  bgColor={'white'} justifyContent={'space-between'}   >
         <Box mt={3} ml={4} p={2} bgColor={'white'}  borderRadius={50} >
 
         <FaPlus style={{fontSize:'3vh'}} />
