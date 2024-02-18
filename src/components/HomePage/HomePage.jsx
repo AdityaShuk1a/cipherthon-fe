@@ -18,6 +18,7 @@ const HomePage = () => {
     const [numberOfHospitals, setnumberOfHospitals] = useState(69);
     const [currentHospital, setcurrentHospital] = useState("Sendha Namak");
     const [currentDoctor, setcurrentDoctor] = useState("Krishan kumar");
+    const [PatientId, setPatientId] = useState();
     return (
         <>
             <Nav />
